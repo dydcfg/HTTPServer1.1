@@ -12,7 +12,6 @@ FILE *logOpen(const char *path)
         exit(EXIT_FAILURE);
     }
 
-    // set logfile to line buffering
     setvbuf(logfile, NULL, _IOLBF, 0);
 
     return logfile;

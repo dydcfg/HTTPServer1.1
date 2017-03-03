@@ -2,7 +2,7 @@
 #define _LOG_H_
 
 #include <stdarg.h>
-#include "lisod.h"
+#include "liso.h"
 #include <stdio.h>
 #include <stdlib.h>
 

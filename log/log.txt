@@ -1,4 +1,2 @@
-[20170303 01:09:25]  Server started.
-
-[20170303 01:09:33]  Error: Cann't open file 
+[20170303 01:39:55]  Server started.
 

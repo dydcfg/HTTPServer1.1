@@ -22,7 +22,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include "parse.h"
-#include "lisod.h"
+#include "liso.h"
 #include "log.h"
 #include <fcntl.h>
 #define ECHO_PORT 9990
@@ -230,7 +230,7 @@ void serveError(int id, char *errorNum, char *shortMsg, char *longMsg){
     sprintf(header, "%sContent-length: %d\r\n\r\n", header, (int)strlen(body));
     
     // response body
-    sprintf(body, "<html><title>Lisod Error</title>");
+    sprintf(body, "<html><title>Liso Error</title>");
     sprintf(body, "%s<body>\r\n", body);
     sprintf(body, "%sError %s -- %s\r\n", body, errorNum, shortMsg);
     sprintf(body, "%s<br><p>%s</p></body></html>\r\n", body, longMsg);
@@ -257,7 +257,7 @@ int handleClient(int id){
     //Check method
     if (strcasecmp(request->http_method, "GET") && strcasecmp(request->http_method, "HEAD") && strcasecmp(request->http_method, "POST")){
         client_close[id] = 1;
-        serveError(id, "501", "Not implemented", "This method is not support in lisod.");
+        serveError(id, "501", "Not implemented", "This method is not support in liso.");
         free(request->headers);
         free(request);
         printf("handleClient ends.\n");
@@ -267,7 +267,7 @@ int handleClient(int id){
     if (strcasecmp(request->http_version, "HTTP/1.1"))
     {
         client_close[id] = 1;
-        serveError(id, "505", "HTTP Version not supported", "Lisod only support HTTP/1.1");
+        serveError(id, "505", "HTTP Version not supported", "Liso only support HTTP/1.1");
         free(request->headers);
         free(request);
         printf("handleClient ends.\n");
@@ -289,7 +289,7 @@ int handleClient(int id){
 void paraError(){
 
     fprintf(stdout,
-            "Usage: ./lisod <HTTP port> <log file> <www folder>\n"
+            "Usage: ./liso <HTTP port> <log file> <www folder>\n"
             );
     exit(EXIT_FAILURE);
 }
