@@ -1,0 +1,3 @@
+Test:I deployed my codes on AWS and setup the HTTP server. To test it, I used PostMan/Safari/Chrome/Python Request. It passed the GET/POST/HEAD tests and can support concurrent requests.
+
+Vulnerabilities: Dynamic content is not supported. Can not support to many concurrent requests. Hackers can use POST to upload their virus programs and control the server. 
